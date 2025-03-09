@@ -1,0 +1,18 @@
+p {
+    color: black;
+    background-color: rgba(0, 130, 130, 0.2);;
+    font-size: small;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-style: italic;
+}
+
+em {
+    color: blue;
+    font-size: medium;
+}
+
+div {
+    color: red;
+    border-color: black;
+}

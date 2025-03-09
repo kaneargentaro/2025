@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input.error {
+            border: 2px solid red;
+            background-color: #ffe6e6;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function validate() {
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let loginError = document.getElementById("loginError");
+
+            // Reset previous styles
+            email.classList.remove("error");
+            password.classList.remove("error");
+            loginError.style.display = "none";
+            loginError.textContent = "";
+
+            // Email validation regex
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email.value)) {
+                email.classList.add("error");
+                loginError.textContent = "Please enter a valid email address.";
+                loginError.style.display = "block";
+                return false;
+            }
+
+            if (password.value.trim() === "") {
+                password.classList.add("error");
+                loginError.textContent = "Password cannot be empty.";
+                loginError.style.display = "block";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<div class="login-container">
+    <h2 style="text-align: center;">Login</h2>
+    <form onsubmit="return validate()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input id="email" name="email" placeholder="user@email.com" required type="email">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input id="password" name="password" required type="password">
+        </div>
+
+        <div class="form-group">
+            <label for="rememberMe">Keep me signed in:</label>
+            <input id="rememberMe" name="rememberMe" type="checkbox">
+        </div>
+
+        <span class="error-message" id="loginError"></span>
+
+        <input class="submit-btn" type="submit" value="Login">
+    </form>
+</div>
+
+</body>
+</html>

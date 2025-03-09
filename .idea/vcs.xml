@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/AdvancedNodeStarter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/technicalTests/dev-test-kane-argentaro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../react" vcs="Git" />
   </component>
 </project>
